@@ -82,8 +82,9 @@ public class Tools {
 			return a;
 		}
 
-	public static String Extract_from_text(String marker, String material){
+	public static int Extract_from_text(String marker, String material){
 		int z = 0;
+		int index = 0;
 		char [] text_array = material.toCharArray();
 		char [] text_array2 = marker.toCharArray();
 		
@@ -96,14 +97,16 @@ public class Tools {
 			
 		if(text_array[i] == text_array2[0] && text_array[i+1] == text_array2[1] && text_array[i+2] == text_array2[2] && text_array[i+3] == text_array2[3] && text_array[i+4] == text_array2[4] && text_array[i+5] == text_array2[5] && text_array[i+6] == text_array2[6] && text_array[i+7] == text_array2[7]){
 		z++; //КОЛИЧЕСТВО МАРКЕРОВ
+		index = i -3;
+		
 		//text_edge.add(i-1); //ДОБАВЛЯЕМ В МАССИВ ИНДЕКСЫ ДЛЯ РАЗГРАНИЧЕНИЙ
-		har.list.add(marker);
+		//har.list.add(marker);
 		}
 		
 		}
 		
 		String s = Integer.toString(z) + "ЛЯ-ЛЯ-ЛЯ";
-		return s;
+		return index;
 	}
 	
 	public static ArrayList to_file_txt(String a){
@@ -180,5 +183,21 @@ y = " ";     //ОБНУЛЯЕМ ПЕРЕМЕННУЮ ДЛЯ НОВОГО ЦИК�
 			
 			return text;
 		}
+	
+	public static String delete_part(int heigh, int low, char[] material){
+		String s = "";
+		
+		for(int i = 0; i < heigh; i++){
+			s = s + material[i];
+			
+		}
+		
+		for(int i = low; i < material.length; i++){
+			s = s + material[i];
+			
+		}
+		
+		return s;
+	}
 	
 }
