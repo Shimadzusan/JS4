@@ -9,81 +9,37 @@ import java.util.Scanner;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class Alpha extends Conn5{
+public class Delta extends Conn5{
 	
-	static String v_msk_jj = "https://hh.ru/search/vacancy?text=Java+junior&specialization=1.221&area=1&salary=&currency_code=RUR&experience=doesNotMatter&order_by=relevance&search_period=&items_on_page=100&no_magic=true";
-	static String html_text;
-	static ArrayList list = new ArrayList();
-	static public String result;
+	static String html;
+	static ArrayList list5 = new ArrayList();
+	static String result100 = "";
+	static String result200 = "";
 	
+//////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void get_html(String url){
 		
-		String bbb = v_msk_jj;
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(bbb).get();
+			doc = Jsoup.connect(url).get();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		String title = doc.html(); // Присваиваем title html-код
-		
-		//System.out.println(title);
-		System.out.println(title.length());
-		html_text = title;
-		
-////////////////////////////////////////////////////////////////////////////////////////////////
-		
-///////////////////////////////////////////////////////////////////////////////////
-//////////////READ FROM TIME_FILE //////////////////////////////////////
-
-File time_file = new File("C:\\Users\\Stalin\\workspace\\JS4\\link.txt");
-Scanner scan_time_file = null;
-
-try {
-scan_time_file = new Scanner(time_file);
-} 
-
-catch (FileNotFoundException e) {
-e.printStackTrace();
-}
-
-String s = scan_time_file.nextLine();
-
-System.out.println();
-System.out.println("the number from time_file: " + s + " ...format <STRING>;");
-
-//////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////WRITE TO TIME_FILE////////////////////////////////////////////////////
-
-PrintWriter pww6 = null;
-
-try {
-pww6 = new PrintWriter(time_file);
-} 
-catch (FileNotFoundException e) {
-e.printStackTrace();
-}
-//-----------------------------------------------------------------------------------------------//
-
-
-
-
-
-String j = title;
-pww6.println(j);
-pww6.close();
-		
-	search();
-	form_url();
+		String title = doc.html(); // ...ПРИСВАИВАЕМ TITLE HTML-КОД
+		//System.out.println(title.length());
+		html = title;
+		//return html;
 	}
 	
+/////////////////////////////////////////////////////////////////////////////////////////////
+	
 	public static void search(){
-		{
+		
 			
 			
-			char[] mass = html_text.toCharArray();
+			char[] mass = html.toCharArray();
 
 			String s1 = "";
 			String s2 = "";
@@ -114,9 +70,9 @@ pww6.close();
 						//sir++;
 					
 				}
-						System.out.println("case: " + z + " number: " + s2);
+						//System.out.println("case: " + z + " number: " + s2);//..ВЫВОД ЧИСЕЛ ДЛЯ ССЫЛКИ
 						
-						list.add(s2);
+						list5.add(s2);
 						
 						s2 = ""; //ОБНУЛЯЕМ
 					
@@ -134,22 +90,24 @@ pww6.close();
 			//СОЗДАЕМ КОЛЛЕКЦИЮ СТРИНГ
 			//ИЗВЛЕКАЕМ ИЗ КОЛЛЕКЦИИ ЗНАЧЕНИЯ, ФОРМИРУЕМ URL, И СОХРАНЯЕМ ТЕКСТ
 			
-			
-		}
-		
+					
 	}
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	public static void form_url() throws SQLException, ClassNotFoundException{
 		String s;
 		//String result;
 		
 		//Conn5 con = new Conn5();
 		
-		for(int i = 1; i < list.size(); i++){
+		for(int i = 0; i < list5.size(); i++){
 			
-			s = "https://hh.ru/vacancy/" + list.get(i) + "?query=Java%20junior";
-			System.out.println(s);
+			s = "https://hh.ru/vacancy/" + list5.get(i) + "?query=Java%20junior";
+			//list5.remove(i);
+			System.out.println(s+ " .number: " + i);
 			
-	//////////////////////////////////////////////////////////////////////
+//////////////////////////ЗАХОДИМ НА СТРАНИЦУ ПО СФОРМИРОВАНОМУ URL///////////////////////////
 			
 			Document doc2 = null;
 			try {
@@ -161,36 +119,53 @@ pww6.close();
 			//String title2 = doc.html();
 			////////+++/////////////////////
 			
-			result = doc2.text(); //result ---> �������� �����
+			result100 = doc2.text(); //result --->РЕЗУЛЬТАТ ЗАХОДА НА СТРАНИЦУ
 			
-	///////////////////////TO WRITE////////////////////////////////////////
+//			char[] mass200 = result100.toCharArray();
+//
+//			String s1 = "";
+//			String s2 = "";
+//			int z = 0;
+//			
+//			//////////////////////////////////////CYCLE///////////////////////////////////////////////////
+//					
+//			for(int i2 = 0; i2 < mass200.length; i2++){
+//				
+//				////////////////////////ЗАМЕНЯЕМ СИМВОЛ ' //////////////////////////////
+//				if(mass200[i2] == '\''){
+//					mass200[i2] = '.';
+//				}
+//				result200 = result200 + mass200[i2];
+//			}
+//				
+//			
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//			
+//			//DATA BASE//
+//			int xy = i + 1;
+//			
+//			
+//			String a = Integer.toString(xy);// The number of iteration
+//			String b = result200;// The value from Web_scaner
+//			Conn();
+//			//CreateDB();
+//			
+//			
+//				WriteDB(a, b);// To Write in DB
+//		
+//		
+////			if(i == list.size() - 1){
+////					
+////				break;
+////			}
+//			CloseDB();
 			
-///////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////30-05-2018/////////////////////////////////////////////////
-								//DATA BASE//
-			String a = Integer.toString(i);// The number of iteration
-			String b = result;// The value from Web_scaner
-			Conn();
-			CreateDB();
-			
-			if(result.length()<10000){
-				WriteDB(a, b);// To Write in DB
-			}
-		
-			if(i == list.size() - 1){
-					
-				break;
-			}
-			//CloseDB();
-			
-//////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-			
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 ///////////////////////////////////////////////////////////////////////////////////
 //////////////READ FROM TIME_FILE //////////////////////////////////////
-/*
-File main_text = new File("C:\\Users\\Stalin\\workspace\\JS4\\main_text.txt");
+///*
+File main_text = new File("C:\\Users\\Stalin\\workspace\\JS4\\main_super_text.txt");
 Scanner scan_main_text = null;
 
 try {
@@ -223,13 +198,17 @@ e.printStackTrace();
 
 
 
-String j = s_file + result;
+String j = s_file + result100;
 pww7.println(j);
 pww7.close();
-	
-	*/		
-		}
+
+//*/		
+			
+	///////////////////////TO WRITE////////////////////////////////////////
 		
 	}
+		
+	//result200 = "";
+	}}
 
-}
+
