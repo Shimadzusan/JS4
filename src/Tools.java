@@ -20,8 +20,9 @@ public class Tools {
 		catch (FileNotFoundException e) {
 		e.printStackTrace();
 		}
-		
+		//System.out.println("+5");
 		String target = scan_main_text.nextLine();
+		//System.out.println(target);
 		
 		return target;
 	}
@@ -117,7 +118,7 @@ public class Tools {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static ArrayList text_edge(String input){ //ВХОДНЫЕ ДАННЫЕ ТЕКСТ ДЛЯ РАЗГРАНИЧЕНИЯ
 		ArrayList text_edge = new ArrayList();		//ВЫХОДНЫЕ ДАННЫЕ МАССИВ С РАЗГРАНИЧЕННМ ТЕКСТОМ
-		ArrayList text = new ArrayList();			//МАРКЕР ДЛЯ РАЗГРАНИЧЕНИЯ ВАШ БРАУЗЕР
+		ArrayList text = new ArrayList();			//МАРКЕР ДЛЯ РАЗГРАНИЧЕНИЯ ****
 		char[] mass = input.toCharArray();
 
 		String s1 = "";
@@ -128,11 +129,11 @@ public class Tools {
 				
 		for(int i = 0; i < mass.length; i++){
 		
-		//МАРКЕР <А-Ш-_-Б-Р-А-У-З> ОТ СЛОВА ВАШ БРАУЗЕР
-		if(mass[i] == 'а' && mass[i+1] == 'ш' && mass[i+2] == ' ' && mass[i+3] == 'б' && mass[i+4] == 'р' && mass[i+5] == 'а' && mass[i+6] == 'у' && mass[i+7] == 'з'){
+		//МАРКЕР <А-Ш-_-Б-Р-А-У-З> ОТ СЛОВА ВАШ БРАУЗЕР ЗАМЕНЕН НА ****
+		if(mass[i] == '*' && mass[i+1] == '*' && mass[i+2] == '*' && mass[i+3] == '*' /*&& mass[i+4] == 'р' && mass[i+5] == 'а' && mass[i+6] == 'у' && mass[i+7] == 'з'*/){
 		z++; //КОЛИЧЕСТВО МАРКЕРОВ
 		
-		text_edge.add(i-1); //ДОБАВЛЯЕМ В МАССИВ ИНДЕКСЫ ДЛЯ РАЗГРАНИЧЕНИЙ
+		text_edge.add(i); //ДОБАВЛЯЕМ В МАССИВ ИНДЕКСЫ ДЛЯ РАЗГРАНИЧЕНИЙ
 		
 		//ИЗВЛЕКАЕМ ФАКТУРУ
 		//s1 = "" + mass[i-12] + mass[i-11] + mass[i-10] + mass[i-9] + mass[i-8]+ mass[i-7] + mass[i-6] + mass[i-5] + mass[i-4] + mass[i-3];
@@ -193,6 +194,17 @@ y = " ";     //ОБНУЛЯЕМ ПЕРЕМЕННУЮ ДЛЯ НОВОГО ЦИК�
 		}
 		
 		for(int i = low; i < material.length; i++){
+			s = s + material[i];
+			
+		}
+		
+		return s;
+	}
+	
+	public static String extract_part(int heigh, int low, char[] material){
+		String s = "";
+		// hi low
+		for(int i = heigh; i < low +1; i++){
 			s = s + material[i];
 			
 		}

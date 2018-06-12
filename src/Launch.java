@@ -22,17 +22,11 @@ public class Launch {
 		delta.search();
 //		delta.form_url();
 //		
-//		
+		
 		delta.get_html(v_mnsk_jj);
 		//System.out.println(delta.html);
 		delta.search();
 		delta.form_url();
-		
-//		System.out.println(delta.get_html(v_msk_jj));
-//		System.out.println(delta.get_html(v_spb_jj));
-//		System.out.println(delta.get_html(v_mnsk_jj));
-		
-		
 
 	}
 

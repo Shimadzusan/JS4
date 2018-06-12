@@ -37,7 +37,7 @@
 			//conn.
 			
 			/////////////////////////////////////////////////////////////////////////////
-			String table = Betta.sss;
+			String table = "";//Betta.sss;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			String form_table = "CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'time' text, " + table;
 			
 			/////////////////////////////////////////////////////////////////////////////

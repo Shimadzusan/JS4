@@ -1,3 +1,5 @@
+//ВХОДНЫЕ ДАННЫЕ: 3 URL FROM LAUNCH.CLASS
+//ВЫХОДНЫЕ ДАННЫЕ: TOTAL TEXT IN FILE, main_super_text.txt
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -195,10 +197,11 @@ e.printStackTrace();
 //-----------------------------------------------------------------------------------------------//
 
 
+//ФОРМИРУЕМ МАРКЕР В ОБЩЕМ ТЕКСТЕ: ****_***
+String number = Integer.toString(i+1);
+String result200 = "****" + number + "***" + result100;
 
-
-
-String j = s_file + result100;
+String j = s_file + result200;
 pww7.println(j);
 pww7.close();
 
