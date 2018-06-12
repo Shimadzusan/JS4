@@ -119,6 +119,7 @@ public class Tools {
 	public static ArrayList text_edge(String input){ //ВХОДНЫЕ ДАННЫЕ ТЕКСТ ДЛЯ РАЗГРАНИЧЕНИЯ
 		ArrayList text_edge = new ArrayList();		//ВЫХОДНЫЕ ДАННЫЕ МАССИВ С РАЗГРАНИЧЕННМ ТЕКСТОМ
 		ArrayList text = new ArrayList();			//МАРКЕР ДЛЯ РАЗГРАНИЧЕНИЯ ****
+		
 		char[] mass = input.toCharArray();
 
 		String s1 = "";
@@ -128,38 +129,18 @@ public class Tools {
 		//////////////////////////////////////CYCLE///////////////////////////////////////////////////
 				
 		for(int i = 0; i < mass.length; i++){
-		
+		//System.out.println("check point");
 		//МАРКЕР <А-Ш-_-Б-Р-А-У-З> ОТ СЛОВА ВАШ БРАУЗЕР ЗАМЕНЕН НА ****
+			
 		if(mass[i] == '*' && mass[i+1] == '*' && mass[i+2] == '*' && mass[i+3] == '*' /*&& mass[i+4] == 'р' && mass[i+5] == 'а' && mass[i+6] == 'у' && mass[i+7] == 'з'*/){
 		z++; //КОЛИЧЕСТВО МАРКЕРОВ
 		
 		text_edge.add(i); //ДОБАВЛЯЕМ В МАССИВ ИНДЕКСЫ ДЛЯ РАЗГРАНИЧЕНИЙ
-		
-		//ИЗВЛЕКАЕМ ФАКТУРУ
-		//s1 = "" + mass[i-12] + mass[i-11] + mass[i-10] + mass[i-9] + mass[i-8]+ mass[i-7] + mass[i-6] + mass[i-5] + mass[i-4] + mass[i-3];
-		//System.out.println(s1);
-		//ОЧИЩАЕМ, ИЗВЛЕКАЯ ТОЛЬКО ЧИСЛО, VAR S2
-		
-		//char[] mass5 = s1.toCharArray();
-		//
-		//for(int k = 0; k < mass5.length; k++) {
-		//if(Character.isDigit(mass5[k])){
-		////System.out.println(text30[i]);
-		//
-		//s2 = s2 + Character.toString(mass5[k]);
-		//}
-		
-		//sir++;
-		
+//		System.out.println(text_edge.size());
+//	
+//			System.out.println(text_edge.get(z-1));
 		}
-		//System.out.println("case: " + z + " number: " + s2);//..ВЫВОД ЧИСЕЛ ДЛЯ ССЫЛКИ
-		
-		//list5.add(s2);
-		
-		//s2 = ""; //ОБНУЛЯЕМ
-		
-		
-		//////////////////////////////END OF CYCLE////////////////////////////////////////////////////////////		
+
 		}
 		
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,6 +158,7 @@ y = y + mass[k];
 
 int text_size = y.length();		
 text.add(y); //НОВЫЙ МАССИВ С РАЗГРАНИЧЕННЫМ ТЕКСТОМ
+
 y = " ";     //ОБНУЛЯЕМ ПЕРЕМЕННУЮ ДЛЯ НОВОГО ЦИКЛА ИСПОЛЬЗОВАНИЯ
 //System.out.println("I am here, text №.. "+ i + " size this text: " + text_size);
 

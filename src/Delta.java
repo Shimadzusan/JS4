@@ -11,7 +11,7 @@ import java.util.Scanner;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class Delta extends Conn5{
+public class Delta extends Tools{
 	
 	static String html;
 	static ArrayList list5 = new ArrayList();
@@ -210,8 +210,8 @@ pww7.close();
 	///////////////////////TO WRITE////////////////////////////////////////
 		
 	}
-		
-	//result200 = "";
+//	ЗАВЕРШАЮЩИЙ МАРКЕР ДЛЯ ИЗВЛЕЧЕНИЯ ПОСЛЕДНЕЙ ВАКАНСИИ "****"
+		Add_to_file_txt("C:\\Users\\Stalin\\workspace\\JS4\\main_super_text.txt", "****000***Hello Universe!!! ");
 	}}
 
 

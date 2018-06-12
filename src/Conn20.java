@@ -23,7 +23,7 @@ public class Conn20 {
 		   Class.forName("org.sqlite.JDBC");			//������� (java-class) ������� �� ���������� ---> "org.sqlite.JDBC"
 		   
 		   
-		   conn = DriverManager.getConnection("jdbc:sqlite:MyDataBase4005.s3db", "root", "123"); //...
+		   conn = DriverManager.getConnection("jdbc:sqlite:DataBase5000.s3db", "root", "123"); //...
 		   
 		   //�������� �������� � ����������� � ���� ������ � ���� URL-������ ����������� "jdbc:sqlite:TEST5.s3db"
 		   
@@ -56,13 +56,13 @@ public class Conn20 {
 		 
 		 */
 		 String x = "CREATE TABLE if not exists'v_msk_jj' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'time' date, 'specialization' text, 'location' text, 'enterprise' text, 'experience' text, 'text' text);";
-		 System.out.println(x);
+		 //System.out.println(x);
 		
 		statmt = conn.createStatement();
 		//statmt.execute("CREATE TABLE 'v_msk_jj' ('id' text, '1' text, '2' text,'3' text, '4' text, '5' text);");
 		statmt.execute(x);
 		
-		System.out.println("������� ������� ��� ��� ����������.");
+		//System.out.println("������� ������� ��� ��� ����������.");
 	   }
 	
 	// enterprise, experience, text
