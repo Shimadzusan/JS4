@@ -89,7 +89,7 @@ public class Tools {
 		char [] text_array = material.toCharArray();
 		char [] text_array2 = marker.toCharArray();
 		
-		Harold har = new Harold();
+		
 		
 		
 		for(int i = 0; i < text_array.length; i++){

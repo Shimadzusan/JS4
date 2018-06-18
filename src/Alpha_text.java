@@ -14,7 +14,7 @@ public class Alpha_text extends Tools {
 		alpha_text = Read_from_file_txt("C:\\Users\\Stalin\\workspace\\JS4\\main_super_text.txt");
 		//System.out.println(alpha_text);
 		material = text_edge(alpha_text); //ПОЛУЧАЕМ РАЗГРАНИЧЕННЫЙ ТЕКСТ
-		System.out.println(material.size());
+		//System.out.println(material.size());
 		for(int i = 0; i < material.size(); i++){
 			String s = (String) material.get(i);
 			
