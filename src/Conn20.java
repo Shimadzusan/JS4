@@ -21,18 +21,14 @@ public class Conn20 {
 	   {
 		   conn = null;
 		   
-		   Class.forName("org.sqlite.JDBC");			//������� (java-class) ������� �� ���������� ---> "org.sqlite.JDBC"
+		   Class.forName("org.sqlite.JDBC");
 		   
 		   
 		   conn = DriverManager.getConnection("jdbc:sqlite:DataBase5000.s3db", "root", "123"); //...
-		   
-		   //�������� �������� � ����������� � ���� ������ � ���� URL-������ ����������� "jdbc:sqlite:TEST5.s3db"
-		   
-		   
-		   System.out.println("Base is ON!");
+  
+// System.out.println("Base is ON!");
 	   }
 	
-	// --------�������� �������--------
 	public static void CreateDB() throws ClassNotFoundException, SQLException
 	   {
 		
@@ -104,7 +100,7 @@ public class Conn20 {
 			
 			//System.out.println(i + "   : " + enterprise);
 		}
-		//System.out.println("Read DB");
+//System.out.println("Read DB");
 		return list10;
 	    }
 	
@@ -115,7 +111,7 @@ public class Conn20 {
 			statmt.close();
 			//resSet.close();
 			
-			System.out.println("Close DB");
+//System.out.println("Close DB");
 		   }
 
 }
